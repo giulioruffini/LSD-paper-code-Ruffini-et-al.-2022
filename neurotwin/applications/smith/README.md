@@ -1,0 +1,56 @@
+![smith_logo](./docs/resources/smith_logo.svg "Optional Title")
+
+The ```smith``` library, is used to build Ising models (archetypes and personalized) from BOLD data or filtered amplitude envelope of EEG data.
+
+## Structure of the library
+The software tool is based on the following libraries:
+
+ * **`inet`:** iNeT object defined by the Ising parameters and a parameter beta, related to temperature. It also contains the implementation of the metropolis algorithm to obtain relevant thermodynamic variables.
+ * **`itailor`:** Class to create archetypes and personalised Ising models from data and an iNeT object
+ * **`istimweaver`:** Class to get suggestions for the stimweaver pipeline from the results of the Ising model simulations
+ * **`utilities`:** Includes the binarization tool to transform BOLD or EEG 
+   data into its corresponding binarised pattern. It includes as well some 
+   information theory based metrics and tools.
+
+## Pipelines
+
+#### Data preprocessing for iTailor
+Data needs to be binarized.The binarize function in utilities allows to perform this using different thresholding methods (median, mean or std).
+```mermaid
+graph TD
+    DATA1[/Data: Subjects, sessions/] -->|Rearrange| DATA2[Data: ROIs, time]
+    DATA2 -->|Binarization| BINDATA[Binarized data: ROIs, time] 
+    MASK[Mask] --> DATA2
+    BINDATA -->|Loop over subjects and sessions| ENDDATA[/Concatenated sessions binarized data: ROIs, time, subjects/]
+```
+ > In this schematics and the following ones, squares refer to intermediate variables/structures rather than processes themselves as in standard flowcharts.
+ 
+#### Archetype creation
+To create an archetype, the iTailor run method runs the Ezaki method to estimate h and j. What it does is to estimate h and j of the best Ising model that describes the data of all the subjects. It needs an empty-initialized iNET. It is also compatible with another method named `personalized_H`.
+```mermaid
+graph LR
+    DATA[/Binarized data:  ROIs, time, subjects/] --> ITAILOR[iTailor]
+    EMPTY_H[Empty h] --> INET[iNET: empty]
+    EMPTY_J[Empty j] --> INET
+    INET --> ITAILOR
+    ITAILOR -->|run| ARCINET[iNET: archetype]
+```
+#### iNET Personalization
+To personalize an iNET given an archetype, we want the temperatures for which the archetype best describes the data of a given subject. This process can be run for each subjects whose temperature needs to be computed. 
+```mermaid
+graph LR
+    ARCINET[iNET: archetype] --> INETDICT[iNET Dict]
+    DATASUBJ[/Single subject binarized data: ROIs, time/] --> INETDICT
+    EMPTY_H[Empty h] --> INET[iNET: empty]
+    EMPTY_J[Empty j] --> INET
+    INET --> INETDICT
+    INETDICT -->|iTailor run| PERSTEMP[/Personalized temperatures/]
+```
+
+
+ ## Tutorials** 
+ There are two tutorials, one using LSD data and the other using the database, demonstrating how the libraries are used:
+ * `tutorial.ipynb`
+ * `tutorial-petra.ipynb`
+
+> For more information about the Ising model and the personalised Ising model check TN150. The main reference for smith is [BM-SWD0002](https://git.starlab.es/neurotwin/documentation/swd0002-smith).
