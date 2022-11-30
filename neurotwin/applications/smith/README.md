@@ -48,9 +48,3 @@ graph LR
 ```
 
 
- ## Tutorials** 
- There are two tutorials, one using LSD data and the other using the database, demonstrating how the libraries are used:
- * `tutorial.ipynb`
- * `tutorial-petra.ipynb`
-
-> For more information about the Ising model and the personalised Ising model check TN150. The main reference for smith is [BM-SWD0002](https://git.starlab.es/neurotwin/documentation/swd0002-smith).
