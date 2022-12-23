@@ -5,14 +5,14 @@ Ref:
 [https://www.biorxiv.org/content/10.1101/2022.08.27.505518v4](https://www.biorxiv.org/content/10.1101/2022.08.27.505518v4)
 
 To be able to run the Jupyter notebook you will need data access. The Jupyter notebook expects a data folder with lsd and supp_data subfolders:
-
+```
 data/
    lsd/
       - LSD_all.npy
       - LSD_all.mat
    supp_data/     
       -  AAL.pkl
-
+```
 See https://zenodo.org/record/7476255#.Y6WJAC-B3T9 for requesting data access.
 
 ## SMITH library
