@@ -1,6 +1,6 @@
 # LSD-paper-code-Ruffini-et-al.-2022
 
-https://www.biorxiv.org/content/10.1101/2022.08.27.505518v3
+[https://www.biorxiv.org/content/10.1101/2022.08.27.505518v3](https://www.biorxiv.org/content/10.1101/2022.08.27.505518v4)
 
 
 The Neuroelectrics ```SMITH``` library, is used to build Ising models (archetypes and personalized) from BOLD data or filtered amplitude envelope of EEG data.
@@ -16,8 +16,7 @@ The software tool is based on the following libraries:
    data into its corresponding binarised pattern. It includes as well some 
    information theory based metrics and tools.
 
-## Pipelines
-
+ 
 #### Data preprocessing for iTailor
 Data needs to be binarized.The binarize function in utilities allows to perform this using different thresholding methods (median, mean or std).
 ```mermaid
@@ -50,12 +49,5 @@ graph LR
     INET --> INETDICT
     INETDICT -->|iTailor run| PERSTEMP[/Personalized temperatures/]
 ```
-
-
- ## Tutorials** 
- There are two tutorials, one using LSD data and the other using the database, demonstrating how the libraries are used:
- * `tutorial.ipynb`
- * `tutorial-petra.ipynb`
-
-> For more information about the Ising model and the personalised Ising model check TN150. The main reference for smith is [BM-SWD0002](https://git.starlab.es/neurotwin/documentation/swd0002-smith).
+ 
 
