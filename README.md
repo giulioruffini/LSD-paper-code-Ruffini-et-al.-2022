@@ -1,6 +1,7 @@
 # LSD-paper-code-Ruffini-et-al.-2022
 
-[https://www.biorxiv.org/content/10.1101/2022.08.27.505518v3](https://www.biorxiv.org/content/10.1101/2022.08.27.505518v4)
+[https://www.biorxiv.org/content/10.1101/2022.08.27.505518v4](https://www.biorxiv.org/content/10.1101/2022.08.27.505518v4)
+
 
 
 The Neuroelectrics ```SMITH``` library, is used to build Ising models (archetypes and personalized) from BOLD data or filtered amplitude envelope of EEG data.
