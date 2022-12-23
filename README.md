@@ -1,11 +1,23 @@
 # LSD-paper-code-Ruffini-et-al.-2022
+Contact: G. Ruffini (giulio.ruffini@neuroelectrics.com) [Nov 2022]
 
+Ref: 
 [https://www.biorxiv.org/content/10.1101/2022.08.27.505518v4](https://www.biorxiv.org/content/10.1101/2022.08.27.505518v4)
 
+To be able to run the Jupyter notebook you will need data access. The Jupyter notebook expects a data folder with lsd and supp_data subfolders:
 
+data/
+   lsd/
+      - LSD_all.npy
+      - LSD_all.mat
+   supp_data/     
+      -  AAL.pkl
 
-The Neuroelectrics ```SMITH``` library, is used to build Ising models (archetypes and personalized) from BOLD data or filtered amplitude envelope of EEG data.
-Contact: G. Ruffini (giulio.ruffini@neuroelectrics.com) [Nov 2022]
+See https://zenodo.org/record/7476255#.Y6WJAC-B3T9 for requesting data access.
+
+## SMITH library
+The Neuroelectrics ```SMITH``` library is used to build Ising models from BOLD data or filtered amplitude envelope of EEG data.
+
 
 ## Structure of the library
 The software tool is based on the following libraries:
